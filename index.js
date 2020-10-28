@@ -23,7 +23,7 @@ mongoose.connect(config.mongoURI, {
 
 
 
-app.get('/', (req, res) => res.send('Hello World! Nodemon install completed!'))
+app.get('/', (req, res) => res.send('Hello World!'))
 
 app.post('/register', (req, res) => {
 
@@ -40,6 +40,23 @@ app.post('/register', (req, res) => {
             success: true
         })
     })
+})
+
+app.post('/login', (req, res) => {
+    
+    //1. DB에서 요청한 email 찾기
+    User.findOne({ email: req.body.email}, (err, userInfo) => {
+        if (!userInfo) {
+            return res.json ({
+                loginSuccess: false,
+                msg: "해당되는 이메일이 없습니다."
+            })
+        }
+    })
+    //2. DB에 요청한 email 있다면, password 일치하는지
+
+    //3. password 일치하다면, Token 생성
+
 })
 
 app.listen(port, () => console.log(`Example app listening on port ${port}`))
