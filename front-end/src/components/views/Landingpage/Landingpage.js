@@ -9,8 +9,11 @@ function Landingpage() {
     }, [])
 
     return (
-        <div>
-            Landingpage 렌딩페이지
+        <div style={{
+            display: 'flex', justifyContent: 'center', alignItems: 'center',
+            width: '100%', height: '100vh'
+        }}>
+            <h1>랜딩 페이지!</h1>
         </div>
     )
 }

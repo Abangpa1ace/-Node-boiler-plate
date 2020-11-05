@@ -25,6 +25,10 @@ mongoose.connect(config.mongoURI, {
 
 app.get('/', (req, res) => res.send('Initial Site'))
 
+app.get('/api/hello', (req, res) => {
+    res.send("안녕하세요 정상입니다~")
+})
+
 app.post('/api/user/register', (req, res) => {
 
     //회원가입에 필요한 정보들을 Client에서 가져오면
